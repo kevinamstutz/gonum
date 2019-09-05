@@ -593,6 +593,12 @@ func (v *VecDense) MulVec(a Matrix, b Vector) {
 		}
 		v.setVec(0, sum)
 		return
+	case *SymBandDense:
+		if fast {
+			amat := aU.mat
+			blas64.Sbmv(1, amat, bmat, 0, v.mat)
+			return
+		}
 	case *SymDense:
 		if fast {
 			amat := aU.mat
