@@ -1,4 +1,4 @@
-module gonum.org/v1/gonum
+module github.com/kevinamstutz/gonum
 
 go 1.12
 
